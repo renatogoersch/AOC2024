@@ -39,21 +39,23 @@ def only_decreasing(values: list, removed=False):
                 return False
     return True
         
-def is_safe(values: list):
-    result = only_increasing(values, False) or only_decreasing(values, False)
+def is_safe(values: list, part2: bool):
+    if part2:
+        result = only_increasing(values, False) or only_decreasing(values, False)
+    else:
+        result = only_increasing(values, True) or only_decreasing(values, True)
     return result
 
 # PART 1
 c1 = 0
 for values in lists:
-    if is_safe(values):
+    if is_safe(values, False):
         c1 += 1
 print("(PART 1) The result is:", c1)
 
 # PART 2
 c2 = 0
 for values in lists:
-    if is_safe(values):
+    if is_safe(values, True):
         c2 += 1
-        print(f"Safe list: {values}")
 print("(PART 2) The result is:", c2)
