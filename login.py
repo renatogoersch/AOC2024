@@ -5,12 +5,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 session_cookie = os.getenv("SESSION_COOKIE")
+user = os.getenv("USER_AGENT")
 
 def get_input(day: int) -> str:
     url = f"https://adventofcode.com/2024/day/{day}/input"
     headers = {
         "Cookie": f"session={session_cookie}",
-        "User-Agent": "YourCustomUserAgent (email@example.com)"  # Optional but polite
+        "User-Agent": f"YourCustomUserAgent ({user})"
     }
     response = requests.get(url, headers=headers)
     
