@@ -1,6 +1,7 @@
 
 import os
 import sys
+import re
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 from login import get_input
 
@@ -20,8 +21,6 @@ for n2 in values2:
             result += int(number1) * int(number2)
 print("(PART 1) The result is:", result)
 
-
-import re
 #split based on "don't" and "do"
 values = re.split(r"(don't|do)", input)
 values.insert(0, "do")
